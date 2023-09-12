@@ -20,7 +20,7 @@ struct IdyllResource {
         if purchasedAmount < 10 {
             return initialCost
         } else {
-            return pow(Double(initialCost), pow(stepCount(purchasedAmount), 2))
+            return pow(Double(initialCost), pow(stepCount(purchasedAmount) + 1, 2))
         }
     }
     
@@ -29,7 +29,12 @@ struct IdyllResource {
     }
     
     func nextStep(_ purchasedAmount: Double) -> Double {
-        return stepCount(purchasedAmount) * 10
+        return (stepCount(purchasedAmount) + 1) * 10
+    }
+    
+    func stepMultiplier(_ purchasedAmount: Double) -> Double {
+        let stepCount = self.stepCount(purchasedAmount) - 1
+        return stepCount > 0 ? pow(2, stepCount) : 1
     }
 }
 

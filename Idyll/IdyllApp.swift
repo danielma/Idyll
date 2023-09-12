@@ -28,7 +28,7 @@ struct IdyllApp: App {
     }
     
     let timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
-    @State var lastTotalAmount = Double(0)
+    @State var lastTotalAmount: Double = 0
     @State var lastSetTotalAmount = Date()
     
     var body: some Scene {
@@ -53,8 +53,11 @@ struct IdyllApp: App {
                 let secondsBeenRunning = lastSetTotalAmount.distance(to: now)
                 
                 for (index) in model.resources.indices {
+                    let resource = model.resources[index]
                     let amount = model.resourceAmounts[index]
-                    let countToAdd = secondsBeenRunning * amount
+                    let purchasedAmount = model.purchasedAmounts[index]
+                    let stepMultiplier = resource.stepMultiplier(purchasedAmount)
+                    let countToAdd = secondsBeenRunning * amount * stepMultiplier
                     
                     if (index == 0 ) {
                         setTotalAmount(totalAmount + countToAdd)

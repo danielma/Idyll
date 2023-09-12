@@ -64,16 +64,20 @@ struct ContentView: View {
                 let amount = amounts[index]
                 let purchasedAmount = purchasedAmounts[index]
                 let currentCost = resource.currentCost(purchasedAmount)
-                let nextStep = resource.nextStep(purchasedAmount)
+//                let nextStep = resource.nextStep(purchasedAmount)
                 
                 let inThisStep = purchasedAmount - (resource.stepCount(purchasedAmount) * 10)
                 
-                let _ = print("\(resource.emoji): purchasedAmount: \(purchasedAmount) — nextStep: \(nextStep) — inThisStep: \(inThisStep)")
+//                let _ = print("\(resource.emoji): purchasedAmount: \(purchasedAmount) — nextStep: \(nextStep) — inThisStep: \(inThisStep) — stepCount: \(resource.stepCount(purchasedAmount))")
                 
                 HStack {
                     VStack {
                         Text(resource.emoji)
                         Text(formatNumber(amount)).font(.system(.body, design: .monospaced))
+                        
+                        if resource.stepMultiplier(purchasedAmount) > 1 {
+                            Text("x\(formatter.string(for: resource.stepMultiplier(purchasedAmount)) ?? "")").font(.caption)
+                        }
                     }
                     ProgressView(value: inThisStep / 10, total: 1.0)
                     Button("Buy for \(formatNumber(currentCost))") { buyResource(index) }.disabled(currentCost > totalAmt)
@@ -87,6 +91,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(totalAmt: 100, resources: idyllResources, amounts: idyllResources.map { _ in Double(0) }, purchasedAmounts: idyllResources.map { _ in Double(0) })
+        ContentView(totalAmt: 100, resources: idyllResources, amounts: idyllResources.map { _ in Double(0) }, purchasedAmounts: idyllResources.map { _ in Double(100) })
     }
 }
