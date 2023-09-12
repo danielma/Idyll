@@ -20,7 +20,11 @@ struct IdyllResource {
         if purchasedAmount < 10 {
             return initialCost
         } else {
-            return pow(Double(initialCost), pow(stepCount(purchasedAmount) + 1, 2))
+//            return pow(Double(initialCost), pow(stepCount(purchasedAmount) + 1, 2))
+            // e is going up by exactly 2 each step. i want it to go up by the step count
+//            return pow(initialCost, (stepCount(purchasedAmount) * 2))
+//            return pow(initialCost, pow(stepCount(purchasedAmount) + 1, 2))
+            return pow(pow(initialCost, stepCount(purchasedAmount) + 1), stepCount(purchasedAmount))
         }
     }
     
@@ -43,6 +47,8 @@ var idyllResources = [
     IdyllResource(id: "coconuts", emoji: "🥥", initialCost: 100),
     IdyllResource(id: "peppers", emoji: "🫑", initialCost: 10_000),
     IdyllResource(id: "mushrooms", emoji: "🍄", initialCost: 100_000),
-    IdyllResource(id:  "avocado", emoji: "🥑", initialCost: 1_000_000),
-    IdyllResource(id: "bananas", emoji: "🍌", initialCost: 10_000_000_000)
+    IdyllResource(id:  "avocado", emoji: "🥑", initialCost: 10_000_000),
+    IdyllResource(id: "bananas", emoji: "🍌", initialCost: 10_000_000_000),
+    IdyllResource(id: "broccoli", emoji: "🥦", initialCost: 100_000_000_000_000),
+    IdyllResource(id: "pineapple", emoji: "🍍", initialCost: 100_000_000_000_000_000_000)
 ]
