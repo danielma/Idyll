@@ -60,7 +60,10 @@ struct ContentView: View {
             List(resources.indices, id: \.self) { index in
                 let resource = resources[index]
                 
-                ResourceView(resource: resource, amount: amounts[index], purchasedAmount: purchasedAmounts[index], buyResource: { buyResource(index) }, totalAmount: totalAmt)
+                if index == 0 || purchasedAmounts[index - 1] >= 20 {
+                    
+                    ResourceView(resource: resource, amount: amounts[index], purchasedAmount: purchasedAmounts[index], buyResource: { buyResource(index) }, totalAmount: totalAmt)
+                }
             }.listStyle(.plain)
         }.background(.regularMaterial)
     }
@@ -86,7 +89,7 @@ struct ResourceView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Text(resource.emoji).font(.title2)
-                        Text(stepMultiplier > 1 ? "x\(formatter.string(for: stepMultiplier) ?? "")" : "").font(.caption)
+                        Text(stepMultiplier > 1 ? "×\(formatter.string(for: stepMultiplier) ?? "")" : "").font(.caption)
                     }
                     Text(formatNumber(amount)).font(.system(.body, design: .monospaced))
                 }
