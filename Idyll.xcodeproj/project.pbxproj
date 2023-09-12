@@ -14,6 +14,7 @@
 		66FE136B2AB02B0100FC7036 /* IdyllTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FE136A2AB02B0100FC7036 /* IdyllTests.swift */; };
 		66FE13752AB02B0100FC7036 /* IdyllUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FE13742AB02B0100FC7036 /* IdyllUITests.swift */; };
 		66FE13772AB02B0100FC7036 /* IdyllUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FE13762AB02B0100FC7036 /* IdyllUITestsLaunchTests.swift */; };
+		66FE13842AB02E5300FC7036 /* IdyllResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FE13832AB02E5300FC7036 /* IdyllResource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		66C7C0302AB0558500C603EC /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		66FE13562AB02AFF00FC7036 /* Idyll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Idyll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66FE13592AB02AFF00FC7036 /* IdyllApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdyllApp.swift; sourceTree = "<group>"; };
 		66FE135B2AB02AFF00FC7036 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +46,7 @@
 		66FE13702AB02B0100FC7036 /* IdyllUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IdyllUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66FE13742AB02B0100FC7036 /* IdyllUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdyllUITests.swift; sourceTree = "<group>"; };
 		66FE13762AB02B0100FC7036 /* IdyllUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdyllUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		66FE13832AB02E5300FC7036 /* IdyllResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdyllResource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,7 @@
 		66FE134D2AB02AFF00FC7036 = {
 			isa = PBXGroup;
 			children = (
+				66C7C0302AB0558500C603EC /* MyPlayground.playground */,
 				66FE13582AB02AFF00FC7036 /* Idyll */,
 				66FE13692AB02B0100FC7036 /* IdyllTests */,
 				66FE13732AB02B0100FC7036 /* IdyllUITests */,
@@ -96,6 +100,7 @@
 			children = (
 				66FE13592AB02AFF00FC7036 /* IdyllApp.swift */,
 				66FE135B2AB02AFF00FC7036 /* ContentView.swift */,
+				66FE13832AB02E5300FC7036 /* IdyllResource.swift */,
 				66FE135D2AB02B0100FC7036 /* Assets.xcassets */,
 				66FE135F2AB02B0100FC7036 /* Preview Content */,
 			);
@@ -258,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66FE135C2AB02AFF00FC7036 /* ContentView.swift in Sources */,
+				66FE13842AB02E5300FC7036 /* IdyllResource.swift in Sources */,
 				66FE135A2AB02AFF00FC7036 /* IdyllApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
