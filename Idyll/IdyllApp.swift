@@ -31,6 +31,16 @@ struct IdyllApp: App {
     @State var lastTotalAmount: Double = 0
     @State var lastSetTotalAmount = Date()
     
+    private func perSecond() -> Double {
+        let resource = model.resources[0]
+        let amount = model.resourceAmounts[0]
+        let purchasedAmount = model.purchasedAmounts[0]
+        let stepMultiplier = resource.stepMultiplier(purchasedAmount)
+        let countToAdd = 1 * amount * stepMultiplier
+
+        return countToAdd
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView(
@@ -38,6 +48,7 @@ struct IdyllApp: App {
                 resources: model.resources,
                 amounts: model.resourceAmounts,
                 purchasedAmounts: model.purchasedAmounts,
+                perSecond: perSecond(),
                 buyResource: { idx in
                 let purchasedAmt = model.purchasedAmounts[idx]
                 let cost = model.resources[idx].currentCost(purchasedAmt)

@@ -51,11 +51,13 @@ struct ContentView: View {
     var resources: [IdyllResource]
     var amounts: [Double]
     var purchasedAmounts: [Double]
+    var perSecond: Double
     var buyResource: (_ idx: Int) -> Void = { _ in }
     
     var body: some View {
         VStack(alignment: .center) {
             Text(formatNumber(totalAmt)).font(.system(.title, design: .monospaced))
+            Text("\(formatNumber(perSecond)) / second").font(.caption)
             
             List(resources.indices, id: \.self) { index in
                 let resource = resources[index]
@@ -83,7 +85,6 @@ struct ResourceView: View {
         let inThisStep = purchasedAmount - (resource.stepCount(purchasedAmount) * 10)
         let stepMultiplier = resource.stepMultiplier(purchasedAmount)
         
-//                let _ = print("\(resource.emoji): purchasedAmount: \(purchasedAmount) — nextStep: \(nextStep) — inThisStep: \(inThisStep) — stepCount: \(resource.stepCount(purchasedAmount))")
         VStack(alignment: .leading) {
             HStack(alignment: .center) {
                 VStack(alignment: .leading) {
@@ -108,6 +109,6 @@ struct ResourceView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(totalAmt: 100, resources: idyllResources, amounts: idyllResources.map { _ in Double(0) }, purchasedAmounts: idyllResources.map { _ in Double(2) })
+        ContentView(totalAmt: 100, resources: idyllResources, amounts: idyllResources.map { _ in Double(90000000) }, purchasedAmounts: idyllResources.map { _ in Double(24) }, perSecond: 2000)
     }
 }
