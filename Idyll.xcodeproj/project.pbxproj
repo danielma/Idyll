@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		66FE135A2AB02AFF00FC7036 /* IdyllApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FE13592AB02AFF00FC7036 /* IdyllApp.swift */; };
+		66FE135C2AB02AFF00FC7036 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FE135B2AB02AFF00FC7036 /* ContentView.swift */; };
+		66FE135E2AB02B0100FC7036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66FE135D2AB02B0100FC7036 /* Assets.xcassets */; };
+		66FE13612AB02B0100FC7036 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66FE13602AB02B0100FC7036 /* Preview Assets.xcassets */; };
+		66FE136B2AB02B0100FC7036 /* IdyllTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FE136A2AB02B0100FC7036 /* IdyllTests.swift */; };
+		66FE13752AB02B0100FC7036 /* IdyllUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FE13742AB02B0100FC7036 /* IdyllUITests.swift */; };
+		66FE13772AB02B0100FC7036 /* IdyllUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FE13762AB02B0100FC7036 /* IdyllUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		66FE13672AB02B0100FC7036 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66FE134E2AB02AFF00FC7036 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66FE13552AB02AFF00FC7036;
+			remoteInfo = Idyll;
+		};
+		66FE13712AB02B0100FC7036 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66FE134E2AB02AFF00FC7036 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66FE13552AB02AFF00FC7036;
+			remoteInfo = Idyll;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		66FE13562AB02AFF00FC7036 /* Idyll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Idyll.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		66FE13592AB02AFF00FC7036 /* IdyllApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdyllApp.swift; sourceTree = "<group>"; };
+		66FE135B2AB02AFF00FC7036 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		66FE135D2AB02B0100FC7036 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		66FE13602AB02B0100FC7036 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		66FE13662AB02B0100FC7036 /* IdyllTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IdyllTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		66FE136A2AB02B0100FC7036 /* IdyllTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdyllTests.swift; sourceTree = "<group>"; };
+		66FE13702AB02B0100FC7036 /* IdyllUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IdyllUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		66FE13742AB02B0100FC7036 /* IdyllUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdyllUITests.swift; sourceTree = "<group>"; };
+		66FE13762AB02B0100FC7036 /* IdyllUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdyllUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		66FE13532AB02AFF00FC7036 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66FE13632AB02B0100FC7036 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66FE136D2AB02B0100FC7036 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		66FE134D2AB02AFF00FC7036 = {
+			isa = PBXGroup;
+			children = (
+				66FE13582AB02AFF00FC7036 /* Idyll */,
+				66FE13692AB02B0100FC7036 /* IdyllTests */,
+				66FE13732AB02B0100FC7036 /* IdyllUITests */,
+				66FE13572AB02AFF00FC7036 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		66FE13572AB02AFF00FC7036 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				66FE13562AB02AFF00FC7036 /* Idyll.app */,
+				66FE13662AB02B0100FC7036 /* IdyllTests.xctest */,
+				66FE13702AB02B0100FC7036 /* IdyllUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		66FE13582AB02AFF00FC7036 /* Idyll */ = {
+			isa = PBXGroup;
+			children = (
+				66FE13592AB02AFF00FC7036 /* IdyllApp.swift */,
+				66FE135B2AB02AFF00FC7036 /* ContentView.swift */,
+				66FE135D2AB02B0100FC7036 /* Assets.xcassets */,
+				66FE135F2AB02B0100FC7036 /* Preview Content */,
+			);
+			path = Idyll;
+			sourceTree = "<group>";
+		};
+		66FE135F2AB02B0100FC7036 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				66FE13602AB02B0100FC7036 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		66FE13692AB02B0100FC7036 /* IdyllTests */ = {
+			isa = PBXGroup;
+			children = (
+				66FE136A2AB02B0100FC7036 /* IdyllTests.swift */,
+			);
+			path = IdyllTests;
+			sourceTree = "<group>";
+		};
+		66FE13732AB02B0100FC7036 /* IdyllUITests */ = {
+			isa = PBXGroup;
+			children = (
+				66FE13742AB02B0100FC7036 /* IdyllUITests.swift */,
+				66FE13762AB02B0100FC7036 /* IdyllUITestsLaunchTests.swift */,
+			);
+			path = IdyllUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		66FE13552AB02AFF00FC7036 /* Idyll */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66FE137A2AB02B0100FC7036 /* Build configuration list for PBXNativeTarget "Idyll" */;
+			buildPhases = (
+				66FE13522AB02AFF00FC7036 /* Sources */,
+				66FE13532AB02AFF00FC7036 /* Frameworks */,
+				66FE13542AB02AFF00FC7036 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Idyll;
+			productName = Idyll;
+			productReference = 66FE13562AB02AFF00FC7036 /* Idyll.app */;
+			productType = "com.apple.product-type.application";
+		};
+		66FE13652AB02B0100FC7036 /* IdyllTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66FE137D2AB02B0100FC7036 /* Build configuration list for PBXNativeTarget "IdyllTests" */;
+			buildPhases = (
+				66FE13622AB02B0100FC7036 /* Sources */,
+				66FE13632AB02B0100FC7036 /* Frameworks */,
+				66FE13642AB02B0100FC7036 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				66FE13682AB02B0100FC7036 /* PBXTargetDependency */,
+			);
+			name = IdyllTests;
+			productName = IdyllTests;
+			productReference = 66FE13662AB02B0100FC7036 /* IdyllTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		66FE136F2AB02B0100FC7036 /* IdyllUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66FE13802AB02B0100FC7036 /* Build configuration list for PBXNativeTarget "IdyllUITests" */;
+			buildPhases = (
+				66FE136C2AB02B0100FC7036 /* Sources */,
+				66FE136D2AB02B0100FC7036 /* Frameworks */,
+				66FE136E2AB02B0100FC7036 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				66FE13722AB02B0100FC7036 /* PBXTargetDependency */,
+			);
+			name = IdyllUITests;
+			productName = IdyllUITests;
+			productReference = 66FE13702AB02B0100FC7036 /* IdyllUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		66FE134E2AB02AFF00FC7036 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					66FE13552AB02AFF00FC7036 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					66FE13652AB02B0100FC7036 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 66FE13552AB02AFF00FC7036;
+					};
+					66FE136F2AB02B0100FC7036 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 66FE13552AB02AFF00FC7036;
+					};
+				};
+			};
+			buildConfigurationList = 66FE13512AB02AFF00FC7036 /* Build configuration list for PBXProject "Idyll" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 66FE134D2AB02AFF00FC7036;
+			productRefGroup = 66FE13572AB02AFF00FC7036 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				66FE13552AB02AFF00FC7036 /* Idyll */,
+				66FE13652AB02B0100FC7036 /* IdyllTests */,
+				66FE136F2AB02B0100FC7036 /* IdyllUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		66FE13542AB02AFF00FC7036 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66FE13612AB02B0100FC7036 /* Preview Assets.xcassets in Resources */,
+				66FE135E2AB02B0100FC7036 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66FE13642AB02B0100FC7036 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66FE136E2AB02B0100FC7036 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		66FE13522AB02AFF00FC7036 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66FE135C2AB02AFF00FC7036 /* ContentView.swift in Sources */,
+				66FE135A2AB02AFF00FC7036 /* IdyllApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66FE13622AB02B0100FC7036 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66FE136B2AB02B0100FC7036 /* IdyllTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66FE136C2AB02B0100FC7036 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66FE13752AB02B0100FC7036 /* IdyllUITests.swift in Sources */,
+				66FE13772AB02B0100FC7036 /* IdyllUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		66FE13682AB02B0100FC7036 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66FE13552AB02AFF00FC7036 /* Idyll */;
+			targetProxy = 66FE13672AB02B0100FC7036 /* PBXContainerItemProxy */;
+		};
+		66FE13722AB02B0100FC7036 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66FE13552AB02AFF00FC7036 /* Idyll */;
+			targetProxy = 66FE13712AB02B0100FC7036 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		66FE13782AB02B0100FC7036 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		66FE13792AB02B0100FC7036 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		66FE137B2AB02B0100FC7036 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Idyll/Preview Content\"";
+				DEVELOPMENT_TEAM = 9ZS2BN65E9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = danielma.Idyll;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		66FE137C2AB02B0100FC7036 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Idyll/Preview Content\"";
+				DEVELOPMENT_TEAM = 9ZS2BN65E9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = danielma.Idyll;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		66FE137E2AB02B0100FC7036 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9ZS2BN65E9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = danielma.IdyllTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Idyll.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Idyll";
+			};
+			name = Debug;
+		};
+		66FE137F2AB02B0100FC7036 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9ZS2BN65E9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = danielma.IdyllTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Idyll.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Idyll";
+			};
+			name = Release;
+		};
+		66FE13812AB02B0100FC7036 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9ZS2BN65E9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = danielma.IdyllUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Idyll;
+			};
+			name = Debug;
+		};
+		66FE13822AB02B0100FC7036 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9ZS2BN65E9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = danielma.IdyllUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Idyll;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		66FE13512AB02AFF00FC7036 /* Build configuration list for PBXProject "Idyll" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66FE13782AB02B0100FC7036 /* Debug */,
+				66FE13792AB02B0100FC7036 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66FE137A2AB02B0100FC7036 /* Build configuration list for PBXNativeTarget "Idyll" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66FE137B2AB02B0100FC7036 /* Debug */,
+				66FE137C2AB02B0100FC7036 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66FE137D2AB02B0100FC7036 /* Build configuration list for PBXNativeTarget "IdyllTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66FE137E2AB02B0100FC7036 /* Debug */,
+				66FE137F2AB02B0100FC7036 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66FE13802AB02B0100FC7036 /* Build configuration list for PBXNativeTarget "IdyllUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66FE13812AB02B0100FC7036 /* Debug */,
+				66FE13822AB02B0100FC7036 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 66FE134E2AB02AFF00FC7036 /* Project object */;
+}
