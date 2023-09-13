@@ -13,7 +13,7 @@ let formatter = {
     nf.minimumFractionDigits = 0
     nf.usesGroupingSeparator = true
     nf.groupingSeparator = ","
-//    nf.numberStyle = .scientific
+    nf.numberStyle = .decimal
     return nf
 }()
 
@@ -33,17 +33,26 @@ let sciForm = {
     return nf
 }()
 
+let logForms: [ClosedRange<Double>: String] = [3...5: "K", 6...8: "M", 9...11: "B", 12...14: "T"]
+
+let maxZeroesToShowSpecial = 15
+
 func formatNumber(_ number: Double) -> String {
-    if (number < 1000) {
+    let zeroes = log10(number).rounded(.down)
+    if zeroes < 4 {
         return formatter.string(for: number) ?? ""
-    } else if (number < 1_000_000) {
-        let thousands = fracForm.string(for: (number / 1000)) ?? ""
-        return "\(thousands)K"
-    } else if (number < 1_000_000_000) {
-        let millis = fracForm.string(for: (number / 1_000_000)) ?? ""
-        return "\(millis)M"
-    } else {
+    } else if zeroes > 14 {
         return sciForm.string(for: number) ?? ""
+    } else {
+        let pair = logForms.enumerated().first(where: { $0.element.key.contains(zeroes) })
+
+        if let pair = pair {
+            let powZeroes = pair.element.key.lowerBound
+            let count = fracForm.string(for: number / pow(10, powZeroes)) ?? ""
+            return "\(count)\(pair.element.value)"
+        } else {
+            return "\(formatter.string(for: number) ?? "")??"
+        }
     }
 }
 
@@ -54,62 +63,25 @@ struct ContentView: View {
     var purchasedAmounts: [Double]
     var perSecond: Double
     var buyResource: (_ idx: Int) -> Void = { _ in }
-    
+
     var body: some View {
         VStack(alignment: .center) {
             Text(formatNumber(totalAmt)).font(.system(.title, design: .monospaced))
             Text("\(formatNumber(perSecond)) / second").font(.caption)
-            
+
             List(resources.indices, id: \.self) { index in
                 let resource = resources[index]
-                
-                if index == 0 || purchasedAmounts[index - 1] > 0 {
-                    
-                    ResourceView(resource: resource, amount: amounts[index], purchasedAmount: purchasedAmounts[index], buyResource: { buyResource(index) }, totalAmount: totalAmt)
+
+                if index == 0 || purchasedAmounts[index - 1] > 10 {
+                    ResourceRow(resource: resource, amount: amounts[index], purchasedAmount: purchasedAmounts[index], buyResource: { buyResource(index) }, totalAmount: totalAmt)
                 }
             }.listStyle(.plain)
         }.background(.regularMaterial)
     }
 }
 
-struct ResourceView: View {
-    var resource: IdyllResource
-    var amount: Double
-    var purchasedAmount: Double
-    var buyResource: () -> Void
-    var totalAmount: Double
-    
-    var body: some View {
-        let currentCost = resource.currentCost(purchasedAmount)
-//                let nextStep = resource.nextStep(purchasedAmount)
-        
-        let inThisStep = purchasedAmount - (resource.stepCount(purchasedAmount) * 10)
-        let stepMultiplier = resource.stepMultiplier(purchasedAmount)
-        
-        VStack(alignment: .leading) {
-            HStack(alignment: .center) {
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text(resource.emoji).font(.title2)
-                        Text(stepMultiplier > 1 ? "×\(formatter.string(for: stepMultiplier) ?? "")" : "").font(.caption)
-                    }
-                    Text(formatNumber(amount)).font(.system(.body, design: .monospaced))
-                }
-                Spacer()
-                Button { buyResource() } label: {
-                    VStack {
-                        Text(formatNumber(currentCost))
-                        Text("Buy").font(.caption)
-                    }.frame(width: 84)
-                }.disabled(currentCost > totalAmount).buttonStyle(.borderedProminent)
-            }
-            ProgressView(value: inThisStep / 10, total: 1.0)
-        }
-    }
-}
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(totalAmt: 100, resources: idyllResources, amounts: idyllResources.map { _ in Double(90000000) }, purchasedAmounts: idyllResources.map { _ in Double(24) }, perSecond: 2000)
+        ContentView(totalAmt: 100, resources: idyllResources, amounts: idyllResources.map { _ in Double(9000) }, purchasedAmounts: idyllResources.map { _ in Double(24) }, perSecond: 2000)
     }
 }
