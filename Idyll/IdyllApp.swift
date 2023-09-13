@@ -69,9 +69,20 @@ struct IdyllApp: App {
     }
     
     let timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
+    let saveTimer = Timer.publish(every: 30, on: .main, in: .common).autoconnect()
     @State var lastSetTotalAmount = Date()
     
     @Environment(\.scenePhase) private var scenePhase
+    
+    private func save() {
+        Task {
+            do {
+                try await store.save(state: model)
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+        }
+    }
 
     private func perSecond() -> Double {
         let resource = model.resources[0]
@@ -131,15 +142,12 @@ struct IdyllApp: App {
                     }
                 }
             }
+            .onReceive(saveTimer, perform: { _ in
+                save()
+            })
         }.onChange(of: scenePhase) { phase in
             if (phase != .active) {
-                Task {
-                    do {
-                        try await store.save(state: model)
-                    } catch {
-                        fatalError(error.localizedDescription)
-                    }
-                }
+                save()
             }
         }
     }

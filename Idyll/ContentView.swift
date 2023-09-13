@@ -29,6 +29,7 @@ let sciForm = {
     nf.minimumFractionDigits = 3
     nf.maximumFractionDigits = 3
     nf.numberStyle = .scientific
+    nf.exponentSymbol = "e"
     return nf
 }()
 
@@ -62,7 +63,7 @@ struct ContentView: View {
             List(resources.indices, id: \.self) { index in
                 let resource = resources[index]
                 
-                if index == 0 || purchasedAmounts[index - 1] >= 20 {
+                if index == 0 || purchasedAmounts[index - 1] > 0 {
                     
                     ResourceView(resource: resource, amount: amounts[index], purchasedAmount: purchasedAmounts[index], buyResource: { buyResource(index) }, totalAmount: totalAmt)
                 }
