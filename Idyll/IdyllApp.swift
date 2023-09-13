@@ -25,27 +25,20 @@ class GameStore {
             .appendingPathComponent("gameState.data")
     }
 
-    func load() async throws -> SavedGameState {
-        let task = Task<SavedGameState, Error> {
-            let fileURL = try Self.fileURL()
-            guard let data = try? Data(contentsOf: fileURL) else {
-                return SavedGameState()
-            }
-            let dailyScrums = try JSONDecoder().decode(SavedGameState.self, from: data)
-            return dailyScrums
+    func load() throws -> SavedGameState {
+        let fileURL = try Self.fileURL()
+        guard let data = try? Data(contentsOf: fileURL) else {
+            return SavedGameState()
         }
-        let scrums = try await task.value
-        return scrums
+        let dailyScrums = try JSONDecoder().decode(SavedGameState.self, from: data)
+        return dailyScrums
     }
 
-    func save(state: GameState) async throws {
-        let task = Task {
-            let saveState = SavedGameState(purchasedAmounts: state.purchasedAmounts, resourceAmounts: state.resourceAmounts, savedAt: Date(), totalAmount: state.totalAmount)
-            let data = try JSONEncoder().encode(saveState)
-            let outfile = try Self.fileURL()
-            try data.write(to: outfile)
-        }
-        _ = try await task.value
+    func save(state: GameState) throws {
+        let saveState = SavedGameState(purchasedAmounts: state.purchasedAmounts, resourceAmounts: state.resourceAmounts, savedAt: Date(), totalAmount: state.totalAmount)
+        let data = try JSONEncoder().encode(saveState)
+        let outfile = try Self.fileURL()
+        try data.write(to: outfile)
     }
 }
 
@@ -74,12 +67,10 @@ struct IdyllApp: App {
     @Environment(\.scenePhase) private var scenePhase
 
     private func save() {
-        Task {
-            do {
-                try await store.save(state: model)
-            } catch {
-                fatalError(error.localizedDescription)
-            }
+        do {
+            try store.save(state: model)
+        } catch {
+            fatalError(error.localizedDescription)
         }
     }
 
@@ -149,7 +140,7 @@ struct IdyllApp: App {
                         }).sheet(isPresented: $settingsSheet, content: {
                             Button("Reset Game", action: { resetGame () })
                         })
-                    }.padding(.horizontal).background(.regularMaterial)
+                    }.padding().background(.regularMaterial)
                     
                     
                     ContentView(
@@ -161,13 +152,13 @@ struct IdyllApp: App {
                     )
                     .task {
                         do {
-                            let state = try await store.load()
+                            let state = try store.load()
                             
                             model.purchasedAmounts = state.purchasedAmounts
                             model.resourceAmounts = state.resourceAmounts
                             lastSetTotalAmount = state.savedAt
                         } catch {
-                            fatalError(error.localizedDescription)
+                            // Sorry, no saved data for you
                         }
                     }
                     .onReceive(timer) { _ in runLoop() }
