@@ -22,9 +22,8 @@ class GameStore {
                                     in: .userDomainMask,
                                     appropriateFor: nil,
                                     create: false)
-        .appendingPathComponent("gameState.data")
+            .appendingPathComponent("gameState.data")
     }
-
 
     func load() async throws -> SavedGameState {
         let task = Task<SavedGameState, Error> {
@@ -36,25 +35,25 @@ class GameStore {
             return dailyScrums
         }
         let scrums = try await task.value
-       return scrums
+        return scrums
     }
 
     func save(state: GameState) async throws {
-            let task = Task {
-                let saveState = SavedGameState(purchasedAmounts: state.purchasedAmounts, resourceAmounts: state.resourceAmounts, savedAt: Date(), totalAmount: state.totalAmount)
-                let data = try JSONEncoder().encode(saveState)
-                let outfile = try Self.fileURL()
-                try data.write(to: outfile)
-            }
-            _ = try await task.value
+        let task = Task {
+            let saveState = SavedGameState(purchasedAmounts: state.purchasedAmounts, resourceAmounts: state.resourceAmounts, savedAt: Date(), totalAmount: state.totalAmount)
+            let data = try JSONEncoder().encode(saveState)
+            let outfile = try Self.fileURL()
+            try data.write(to: outfile)
         }
+        _ = try await task.value
+    }
 }
 
 class GameState: ObservableObject {
     @Published var purchasedAmounts = initialAmounts
     @Published var resourceAmounts = initialAmounts
     @Published var totalAmount: Double = 10
-    
+
     var resources = idyllResources
 }
 
@@ -62,18 +61,18 @@ class GameState: ObservableObject {
 struct IdyllApp: App {
     private var store = GameStore()
     @StateObject var model = GameState()
-    
+
     private func setTotalAmount(_ value: Double) {
         model.totalAmount = value
         lastSetTotalAmount = Date()
     }
-    
+
     let timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
     let saveTimer = Timer.publish(every: 30, on: .main, in: .common).autoconnect()
     @State var lastSetTotalAmount = Date()
-    
+
     @Environment(\.scenePhase) private var scenePhase
-    
+
     private func save() {
         Task {
             do {
@@ -93,64 +92,64 @@ struct IdyllApp: App {
 
         return countToAdd
     }
-    
-    var body: some Scene {
-        WindowGroup {
-            ContentView(
-                totalAmt: model.totalAmount,
-                resources: idyllResources,
-                amounts: model.resourceAmounts,
-                purchasedAmounts: model.purchasedAmounts,
-                perSecond: perSecond(),
-                buyResource: { idx in
-                    let purchasedAmt = model.purchasedAmounts[idx]
-                    let cost = idyllResources[idx].currentCost(purchasedAmt)
 
-                    if (model.totalAmount >= cost) {
-                        model.resourceAmounts[idx] += 1
-                        model.purchasedAmounts[idx] += 1
-                        setTotalAmount(model.totalAmount - cost)
-                    }
-                }
-            )
-            .task {
-                do {
-                    let state = try await store.load()
+    private func runLoop() {
+        let now = Date()
+        let secondsBeenRunning = lastSetTotalAmount.distance(to: now)
 
-                    model.purchasedAmounts = state.purchasedAmounts
-                    model.resourceAmounts = state.resourceAmounts
-                    lastSetTotalAmount = state.savedAt
-                } catch {
-                    fatalError(error.localizedDescription)
-                }
-            }
-            .onReceive(timer) { _ in
-                let now = Date()
-                let secondsBeenRunning = lastSetTotalAmount.distance(to: now)
-                
-                for (index) in model.resources.indices {
-                    let resource = idyllResources[index]
-                    let amount = model.resourceAmounts[index]
-                    let purchasedAmount = model.purchasedAmounts[index]
-                    let stepMultiplier = resource.stepMultiplier(purchasedAmount)
-                    let countToAdd = secondsBeenRunning * amount * stepMultiplier
-                    
-                    if (index == 0 ) {
-                        setTotalAmount(model.totalAmount + countToAdd)
-                    } else {
-                        model.resourceAmounts[index - 1] += countToAdd
-                    }
-                }
-            }
-            .onReceive(saveTimer, perform: { _ in
-                save()
-            })
-        }.onChange(of: scenePhase) { phase in
-            if (phase != .active) {
-                save()
+        for index in model.resources.indices {
+            let resource = idyllResources[index]
+            let amount = model.resourceAmounts[index]
+            let purchasedAmount = model.purchasedAmounts[index]
+            let stepMultiplier = resource.stepMultiplier(purchasedAmount)
+            let countToAdd = secondsBeenRunning * amount * stepMultiplier
+
+            if index == 0 {
+                setTotalAmount(model.totalAmount + countToAdd)
+            } else {
+                model.resourceAmounts[index - 1] += countToAdd
             }
         }
     }
     
+    private func buyResourceAt(index: Int) {
+        let purchasedAmt = model.purchasedAmounts[index]
+        let cost = idyllResources[index].currentCost(purchasedAmt)
         
+        if model.totalAmount >= cost {
+            model.resourceAmounts[index] += 1
+            model.purchasedAmounts[index] += 1
+            setTotalAmount(model.totalAmount - cost)
+        }
+    }
+
+    var body: some Scene {
+        WindowGroup {
+            NavigationView {
+                ContentView(
+                    totalAmt: model.totalAmount,
+                    resources: idyllResources,
+                    amounts: model.resourceAmounts,
+                    purchasedAmounts: model.purchasedAmounts,
+                    perSecond: perSecond(),
+                    buyResource: { buyResourceAt(index: $0) }
+                )
+                .task {
+                    do {
+                        let state = try await store.load()
+
+                        model.purchasedAmounts = state.purchasedAmounts
+                        model.resourceAmounts = state.resourceAmounts
+                        lastSetTotalAmount = state.savedAt
+                    } catch {
+                        fatalError(error.localizedDescription)
+                    }
+                }
+                .onReceive(timer) { _ in runLoop() }
+                .onReceive(saveTimer) { _ in save() }
+            }
+        }.onChange(of: scenePhase) { phase in
+            if phase != .active { save() }
+        }
+    }
 }

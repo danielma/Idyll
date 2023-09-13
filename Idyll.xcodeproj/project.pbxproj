@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		665D323F2AB18E46003E5A29 /* ResourceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665D323E2AB18E46003E5A29 /* ResourceRow.swift */; };
+		66D6EDDC2AB2142C004A7B1A /* NumberUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D6EDDB2AB2142C004A7B1A /* NumberUtils.swift */; };
 		66FE135A2AB02AFF00FC7036 /* IdyllApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FE13592AB02AFF00FC7036 /* IdyllApp.swift */; };
 		66FE135C2AB02AFF00FC7036 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FE135B2AB02AFF00FC7036 /* ContentView.swift */; };
 		66FE135E2AB02B0100FC7036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66FE135D2AB02B0100FC7036 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		665D323E2AB18E46003E5A29 /* ResourceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceRow.swift; sourceTree = "<group>"; };
 		66C7C0302AB0558500C603EC /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		66D6EDDB2AB2142C004A7B1A /* NumberUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberUtils.swift; sourceTree = "<group>"; };
 		66FE13562AB02AFF00FC7036 /* Idyll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Idyll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66FE13592AB02AFF00FC7036 /* IdyllApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdyllApp.swift; sourceTree = "<group>"; };
 		66FE135B2AB02AFF00FC7036 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				66FE13592AB02AFF00FC7036 /* IdyllApp.swift */,
 				66FE135B2AB02AFF00FC7036 /* ContentView.swift */,
+				66D6EDDB2AB2142C004A7B1A /* NumberUtils.swift */,
 				665D323E2AB18E46003E5A29 /* ResourceRow.swift */,
 				66FE13832AB02E5300FC7036 /* IdyllResource.swift */,
 				66FE135D2AB02B0100FC7036 /* Assets.xcassets */,
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				665D323F2AB18E46003E5A29 /* ResourceRow.swift in Sources */,
+				66D6EDDC2AB2142C004A7B1A /* NumberUtils.swift in Sources */,
 				66FE135C2AB02AFF00FC7036 /* ContentView.swift in Sources */,
 				66FE13842AB02E5300FC7036 /* IdyllResource.swift in Sources */,
 				66FE135A2AB02AFF00FC7036 /* IdyllApp.swift in Sources */,
