@@ -122,31 +122,57 @@ struct IdyllApp: App {
             setTotalAmount(model.totalAmount - cost)
         }
     }
+    
+    private func resetGame() {
+        let freshState = GameState()
+        model.totalAmount = freshState.totalAmount
+        model.purchasedAmounts = freshState.purchasedAmounts
+        model.resourceAmounts = freshState.resourceAmounts
+        model.resources = freshState.resources
+    }
+     
+    @State var settingsSheet = false
 
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView(
-                    totalAmt: model.totalAmount,
-                    resources: idyllResources,
-                    amounts: model.resourceAmounts,
-                    purchasedAmounts: model.purchasedAmounts,
-                    perSecond: perSecond(),
-                    buyResource: { buyResourceAt(index: $0) }
-                )
-                .task {
-                    do {
-                        let state = try await store.load()
-
-                        model.purchasedAmounts = state.purchasedAmounts
-                        model.resourceAmounts = state.resourceAmounts
-                        lastSetTotalAmount = state.savedAt
-                    } catch {
-                        fatalError(error.localizedDescription)
+                VStack {
+                    HStack {
+                        Spacer()
+                        VStack {
+                            Text(formatNumber(model.totalAmount)).font(.system(.title, design: .monospaced))
+                            Text("\(formatNumber(perSecond())) / second").font(.caption)
+                        }
+                        Spacer()
+                        Button(action: { settingsSheet.toggle() }, label: {
+                            Label("Settings", systemImage: "gear").labelStyle(.iconOnly)
+                        }).sheet(isPresented: $settingsSheet, content: {
+                            Button("Reset Game", action: { resetGame () })
+                        })
+                    }.padding(.horizontal).background(.regularMaterial)
+                    
+                    
+                    ContentView(
+                        totalAmt: model.totalAmount,
+                        resources: idyllResources,
+                        amounts: model.resourceAmounts,
+                        purchasedAmounts: model.purchasedAmounts,
+                        buyResource: { buyResourceAt(index: $0) }
+                    )
+                    .task {
+                        do {
+                            let state = try await store.load()
+                            
+                            model.purchasedAmounts = state.purchasedAmounts
+                            model.resourceAmounts = state.resourceAmounts
+                            lastSetTotalAmount = state.savedAt
+                        } catch {
+                            fatalError(error.localizedDescription)
+                        }
                     }
+                    .onReceive(timer) { _ in runLoop() }
+                    .onReceive(saveTimer) { _ in save() }
                 }
-                .onReceive(timer) { _ in runLoop() }
-                .onReceive(saveTimer) { _ in save() }
             }
         }.onChange(of: scenePhase) { phase in
             if phase != .active { save() }
